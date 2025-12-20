@@ -245,16 +245,28 @@ static const NSInteger YTLiteSection = 789;
     };
 
     // Helper to generate checkmark setting items for selecting gesture modes
+    //static YTSettingsSectionItem* (^gestureCheckmarkSettingItem)(NSInteger, NSString *) = ^(NSInteger idx, NSString *key) {
+    //    return [YTSettingsSectionItemClass 
+    //        checkmarkItemWithTitle:sectionGestureSelectedModeToString(idx)
+    //        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+    //            [[NSUserDefaults standardUserDefaults] setInteger:idx forKey:key];
+    //            [settingsViewController reloadData];
+    //            return YES;
+    //        }
+    //    ];
+    //};
+
     static YTSettingsSectionItem* (^gestureCheckmarkSettingItem)(NSInteger, NSString *) = ^(NSInteger idx, NSString *key) {
-        return [YTSettingsSectionItemClass 
-            checkmarkItemWithTitle:sectionGestureSelectedModeToString(idx)
+        return [YTSettingsSectionItemClass
+            checkmarkItemWithTitle:sectionGestureSelectedModeToString((GestureMode)idx)
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                [[NSUserDefaults standardUserDefaults] setInteger:idx forKey:key];
-                [settingsViewController reloadData];
-                return YES;
+            [[NSUserDefaults standardUserDefaults] setInteger:idx forKey:key];
+            [settingsViewController reloadData];
+            return YES;
             }
         ];
     };
+
 
     // Helper to generate a section item for selecting a gesture mode
     YTSettingsSectionItem *(^createSectionGestureSelector)(NSString *, NSString *) = ^YTSettingsSectionItem *(NSString *sectionLabel, NSString *sectionKey) {
