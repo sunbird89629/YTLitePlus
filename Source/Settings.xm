@@ -273,7 +273,7 @@ static const NSInteger YTLiteSection = 789;
         return [YTSettingsSectionItemClass itemWithTitle:LOC(sectionLabel)
             accessibilityIdentifier:nil
             detailTextBlock:^NSString *() {
-                return sectionGestureSelectedModeToString(GetInteger(sectionKey));
+                return sectionGestureSelectedModeToString((GestureMode)GetInteger(sectionKey));
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
@@ -744,4 +744,3 @@ static const NSInteger YTLiteSection = 789;
 }
 
 %end
-
