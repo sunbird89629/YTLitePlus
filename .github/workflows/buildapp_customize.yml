@@ -20,12 +20,12 @@ on:
         # youtube official bundle identifier com.google.ios.youtube
         # if i change the bundle identifier, what will happens, could it be crashed?
         description: "Modify the bundle ID"
-        default: "com.google.ios.youtube"
+        default: "cc.aaaabb.metube"
         required: true
         type: string
       app_name:
         description: "Modify the app name"
-        default: "YouTube"
+        default: "MeTube"
         required: true
         type: string
       commit_id:
